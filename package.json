@@ -9,7 +9,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "preact": "^10.10.0"
+    "axios": "^0.27.2",
+    "cheerio": "^1.0.0-rc.12",
+    "cors": "^2.8.5",
+    "preact": "^10.10.0",
+    "puppeteer": "^15.5.0",
+    "require": "^2.4.20",
+    "vite-plugin-require": "^1.0.1"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.3.0",
