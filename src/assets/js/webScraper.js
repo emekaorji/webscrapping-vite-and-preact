@@ -3,7 +3,7 @@ import axios from 'axios';
 
 async function getResults(job, location, pageNumber) {
 	const { data } = await axios.get(
-		`http://localhost:5173/api/search?page=${pageNumber}&search=${job}&location=${location}`
+		`${window.location.href}api/search?page=${pageNumber}&search=${job}&location=${location}`
 	);
 	const $ = cheerio.load(data);
 

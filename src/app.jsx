@@ -68,15 +68,17 @@ export function App() {
 
 	return (
 		<>
-			<SearchForm
-				isSubmitting={isSubmitting}
-				setIsSubmitting={setIsSubmitting}
-				setSearchQuery={setSearchQuery}
-			/>
-			<SearchResults
-				searchResult={searchResult}
-				isLoadingMore={isLoadingMore}
-			/>
+			<main>
+				<SearchForm
+					isSubmitting={isSubmitting}
+					setIsSubmitting={setIsSubmitting}
+					setSearchQuery={setSearchQuery}
+				/>
+				<SearchResults
+					searchResult={searchResult}
+					isLoadingMore={isLoadingMore}
+				/>
+			</main>
 			<Footer />
 		</>
 	);

@@ -7,9 +7,10 @@
 }
 
 .input {
+  background-color: #3b3b3b;
+  color: #fffa;
   font-size: 1.5em;
   text-align: center;
-  color: #fffa;
   flex-grow: 1;
   flex-basis: 100px;
   border: none;

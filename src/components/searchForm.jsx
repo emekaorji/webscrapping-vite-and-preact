@@ -2,6 +2,7 @@ import styles from '../assets/css/searchForm.module.css';
 
 import { useState } from 'preact/hooks';
 import Loader from './loader';
+import loudIt from '../utils/loudIt';
 
 export default function SearchForm({
 	setSearchQuery,
@@ -12,6 +13,10 @@ export default function SearchForm({
 	const [locationValue, setLocationValue] = useState('');
 
 	const handleSubmit = () => {
+		if (jobValue === '') {
+			loudIt('Put in a search value');
+			return;
+		}
 		setIsSubmitting(true);
 		setSearchQuery((searchQuery) => ({
 			...searchQuery,
@@ -19,6 +24,8 @@ export default function SearchForm({
 			location: locationValue,
 		}));
 	};
+
+	const handleEnterKeySubmit = (e) => e.which === 13 && handleSubmit();
 
 	return (
 		<form
@@ -34,7 +41,7 @@ export default function SearchForm({
 				onInput={(e) => setJobValue(e.target.value)}
 				placeholder='Search for jobs'
 				disabled={isSubmitting}
-				onKeyDown={(e) => e.which === 13 && handleSubmit()}
+				onKeyDown={handleEnterKeySubmit}
 			/>
 			<input
 				className={styles.input}
@@ -43,7 +50,7 @@ export default function SearchForm({
 				onInput={(e) => setLocationValue(e.target.value)}
 				placeholder='Search location'
 				disabled={isSubmitting}
-				onKeyDown={(e) => e.which === 13 && handleSubmit()}
+				onKeyDown={handleEnterKeySubmit}
 			/>
 			{isSubmitting && (
 				<div className={styles.formDisabledCover}>
