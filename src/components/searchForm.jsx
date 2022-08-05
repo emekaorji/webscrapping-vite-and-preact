@@ -9,12 +9,15 @@ export default function SearchForm({
 	isSubmitting,
 	setIsSubmitting,
 }) {
-	const [jobValue, setJobValue] = useState('Frontend Engineer');
+	const [jobValue, setJobValue] = useState('');
 	const [locationValue, setLocationValue] = useState('');
 
 	const handleSubmit = () => {
 		if (jobValue === '') {
-			loudIt('Put in a search value');
+			loudIt('Put in a job search value', {
+				position: 'center',
+				background: '#646cff',
+			});
 			return;
 		}
 		setIsSubmitting(true);
