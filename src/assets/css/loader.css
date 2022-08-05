@@ -1,0 +1,52 @@
+.loader-container {
+  width: 20em;
+  height: 1em;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 3em;
+}
+.loader-container::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color: #fff2;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  transform: scale(1.05, 1.2);
+  border-radius: 3em;
+  z-index: 0;
+}
+.loader {
+  min-width: .5em;
+  width: 10%;
+  height: 100%;
+  background-color: #fffe;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  transform: scale(1.6);
+  transform-origin: center;
+  border-radius: 3em;
+  animation: dash .4s cubic-bezier(1, .27, 0, .78) alternate infinite;
+}
+@keyframes dash {
+  0% {
+    left: 0%;
+    right: auto;
+    width: 10%;
+    transform: scale(1.6);
+  }
+  50% {
+    width: 100%;
+    transform: scale(1);
+  }
+  100% {
+    left: auto;
+    right: 0%;
+    width: 10%;
+    transform: scale(1.6);
+  }
+}
